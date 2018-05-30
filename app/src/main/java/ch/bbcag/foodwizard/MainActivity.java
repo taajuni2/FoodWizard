@@ -17,19 +17,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        test();
 
-
-    }
-
-
-    public void test() {
-        ListView items = findViewById(R.id.test_list);
-        ArrayAdapter<Meal> mealAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1);
-        mealAdapter.add(new Meal());
         Button bt = findViewById(R.id.test_button);
-        items.setAdapter(mealAdapter);
-
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,5 +26,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 }

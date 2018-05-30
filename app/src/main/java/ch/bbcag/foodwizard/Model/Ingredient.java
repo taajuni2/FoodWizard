@@ -5,6 +5,13 @@ public class Ingredient {
     private String name;
     private String measure;
 
+
+    public Ingredient() {
+
+    }
+
+
+
     public String getName() {
         return name;
     }

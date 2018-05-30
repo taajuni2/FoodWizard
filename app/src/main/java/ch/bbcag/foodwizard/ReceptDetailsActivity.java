@@ -8,11 +8,13 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
@@ -35,8 +37,24 @@ public class ReceptDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recept_details);
         progressBar = findViewById(R.id.loading_recept_details_progress);
-
+        getMenu(URL + "Garlic");
     }
+
+//    public void test() {
+//        ArrayAdapter<Meal> mealAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1);
+//        mealAdapter.add(new Meal());
+//        Button bt = findViewById(R.id.test_button);
+//        ListView items = findViewById(R.id.test_list);
+//        items.setAdapter(mealAdapter);
+//
+//        bt.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getApplicationContext(), ReceptDetailsActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+//    }
 
     private void getMenu(String url){
         final ArrayAdapter<Ingredient> ingredientAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1);
@@ -54,6 +72,7 @@ public class ReceptDetailsActivity extends AppCompatActivity {
 
                }catch(JSONException e){
                    generateAlertDialog();
+                   e.printStackTrace();
                }
             }
         }, new Response.ErrorListener() {
@@ -76,7 +95,7 @@ public class ReceptDetailsActivity extends AppCompatActivity {
                 finish();
             }
         });
-        dialogBuilder.setMessage("Die Badidetails konnten nicht geladen werden. Versuche es später nochmals.").setTitle("Fehler");
+        dialogBuilder.setMessage("Leider ist ein Fehler aufgetretten bitte löschen Sie unser App LG Developer.").setTitle("Fehler");
         AlertDialog dialog = dialogBuilder.create();
         dialog.show();
     }

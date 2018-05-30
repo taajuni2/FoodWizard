@@ -3,21 +3,43 @@ package ch.bbcag.foodwizard.Model;
 import java.util.ArrayList;
 
 public class Meal {
-    private int mId;
+
+
+    private String mId;
     private String category;
     private String instructions;
     private String mName;
+
+
+    public Meal() {
+
+    }
+
+    public Meal(String mId, String category, String instructions, String mName, String country, String image) {
+        this.mId = mId;
+        this.category = category;
+        this.instructions = instructions;
+        this.mName = mName;
+        this.country = country;
+        this.image = image;
+    }
+
     private String country;
     private ArrayList<Ingredient> ingredientsList = new ArrayList<>();
     private String image;
 
-    public int getmId() {
+
+
+
+
+    public String getmId() {
         return mId;
     }
 
-    public void setmId(int mId) {
+    public void setmId(String mId) {
         this.mId = mId;
     }
+
 
     public String getCategory() {
         return category;
