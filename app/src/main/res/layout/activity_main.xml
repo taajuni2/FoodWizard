@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?> <!-- I like big asian dongs -->
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -6,14 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:alpha="0.8"
+
 
     tools:context=".MainActivity">
 
-
+    <!-- I like big asian dongs -->
     <EditText
 
-        android:id="@+id/inputSearch"
+        android:id="@+id/input_search"
         android:layout_width="246dp"
         android:layout_height="55dp"
         android:layout_marginStart="16dp"
@@ -21,11 +21,12 @@
         android:background="@drawable/border_style"
         android:ems="10"
         android:fontFamily="@font/bowlby_one"
+        android:hint="Zutaten"
         android:inputType="textPersonName"
         android:selectAllOnFocus="false"
         android:singleLine="true"
-        android:text="Name"
         android:textColor="#000"
+        android:textColorLink="@color/colorPrimaryDark"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,18 +34,19 @@
         android:id="@+id/button_send"
         android:layout_width="0dp"
         android:layout_height="55dp"
-
         android:layout_marginEnd="16dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="44dp"
         android:text="Add To List"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/inputSearch"
+        app:layout_constraintStart_toEndOf="@+id/input_search"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- I like big asian dongs -->
     <ListView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/schgumpälämpemachetue"
+        android:id="@+id/zutatenView"
+        android:textSize="10dp"
         android:layout_width="match_parent"
         android:layout_height="552dp"
         android:layout_marginEnd="16dp"
@@ -53,7 +55,14 @@
         android:scrollbars="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputSearch"
+        app:layout_constraintTop_toBottomOf="@+id/input_search"
         tools:context="abhiandroid.com.listexample.MainActivity"/>
+
+    <Button
+        android:id="@+id/test_button"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="@string/app_name"
+        android:visibility="visible" />
 
 </android.support.constraint.ConstraintLayout>
