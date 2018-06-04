@@ -1,14 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
+
+
     tools:context=".MainActivity">
-<Button
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:text="@string/app_name"
-    android:visibility="visible"
-    android:id="@+id/test_button"/>
+
+
+    <EditText
+
+        android:id="@+id/input_search"
+        android:layout_width="246dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/border_style"
+        android:ems="10"
+        android:fontFamily="@font/bowlby_one"
+        android:hint="Zutaten"
+        android:inputType="textPersonName"
+        android:selectAllOnFocus="false"
+        android:singleLine="true"
+        android:textColor="#000"
+        android:textColorLink="@color/colorPrimaryDark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_send"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="44dp"
+        android:text="Add To List"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/input_search"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ListView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/zutatenView"
+        android:layout_width="309dp"
+        android:layout_height="267dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="33dp"
+        android:scrollbars="vertical"
+        android:textSize="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_search"
+        tools:context="abhiandroid.com.listexample.MainActivity" />
+
+    <Button
+        android:id="@+id/find_recipe"
+        android:layout_width="151dp"
+        android:layout_height="64dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="35dp"
+        android:text="Find recipe"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/zutatenView" />
 </android.support.constraint.ConstraintLayout>

@@ -9,7 +9,9 @@ import android.widget.Button;
 import android.widget.ListView;
 
 
+
 import ch.bbcag.foodwizard.Model.Meal;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,8 +19,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+<<<<<<< HEAD
 
         Button bt = findViewById(R.id.test_button);
+=======
+>>>>>>> justin-dev
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -28,4 +33,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+
 }

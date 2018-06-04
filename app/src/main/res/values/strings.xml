@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">FoodWizard</string>
+    <string name="button_label_enabled">START</string>
 </resources>
