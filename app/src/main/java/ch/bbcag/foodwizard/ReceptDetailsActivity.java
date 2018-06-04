@@ -25,6 +25,8 @@ import ch.bbcag.foodwizard.Helper.JsonParser;
 import ch.bbcag.foodwizard.Model.Ingredient;
 import ch.bbcag.foodwizard.Model.Meal;
 
+import static ch.bbcag.foodwizard.Helper.JsonParser.createMealFromJson;
+
 public class ReceptDetailsActivity extends AppCompatActivity {
 
     private ProgressBar progressBar;
@@ -63,7 +65,7 @@ public class ReceptDetailsActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                try {
-                   Meal happymeal = JsonParser.createMealFromJson(response);
+                   Meal happymeal = (Meal) createMealFromJson(response);
                    ingredientAdapter.addAll(happymeal.getIngredientsList());
                    ListView iItems = findViewById(R.id.test_list);
                    iItems.setAdapter(ingredientAdapter);

@@ -1,5 +1,7 @@
 package ch.bbcag.foodwizard.Model;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 public class Meal {
@@ -80,6 +82,8 @@ public class Meal {
     public void setIngredientsList(ArrayList<Ingredient> ingredientsList) {
         this.ingredientsList = ingredientsList;
     }
+
+
 
     public String getImage() {
         return image;

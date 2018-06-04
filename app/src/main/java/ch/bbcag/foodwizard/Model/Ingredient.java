@@ -6,8 +6,18 @@ public class Ingredient {
     private String measure;
 
 
-    public Ingredient() {
+    public String getMeasure() {
+        return measure;
+    }
 
+    public void setMeasure(String measure) {
+        this.measure = measure;
+    }
+
+
+
+    public Ingredient(String name) {
+        this.name = name;
     }
 
 
