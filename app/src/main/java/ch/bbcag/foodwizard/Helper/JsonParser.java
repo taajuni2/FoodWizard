@@ -49,12 +49,15 @@ public class JsonParser {
             Ingredient ingredient = null;
 
             try {
-                if(ingredient.getName() == ""){
-                    ingredient = new Ingredient(jsonMeal.getString("strIngredient" + k));
-                    meal.addIngredient(ingredient);
-                }else{
 
-                }
+                    ingredient = new Ingredient(jsonMeal.getString("strIngredient" + k));
+                    if(ingredient.getName() == ""){
+
+                    }else {
+                        meal.addIngredient(ingredient);
+                    }
+
+
 
 
             } catch (JSONException e) {
@@ -64,12 +67,7 @@ public class JsonParser {
 
         }
     }
-
-
-
-
-
-    }
+}
 
 
 
