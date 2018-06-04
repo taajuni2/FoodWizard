@@ -47,11 +47,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void test() {
+    public void redirectToRecept() {
         ListView items = findViewById(R.id.test_list);
         ArrayAdapter<Meal> mealAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1);
         mealAdapter.add(new Meal());
-        Button bt = findViewById(R.id.test_button);
+        Button bt = findViewById(R.id.find_recipe);
         items.setAdapter(mealAdapter);
 
         bt.setOnClickListener(new View.OnClickListener() {
