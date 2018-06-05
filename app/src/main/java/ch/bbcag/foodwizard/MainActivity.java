@@ -15,14 +15,15 @@ import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
 
+    String searchString;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         addToList();
 
-
-    }
+        }
 
 
     public void addToList() {
@@ -38,9 +39,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String searchString = searchInput.getText().toString();
-
+                searchString = searchInput.getText().toString();
                 searchAdapter.add(searchString);
+
 
             }
         });
@@ -49,7 +50,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ReceptActivity.class);
+                intent.putExtra("searchString", searchString);
                 startActivity(intent);
+
             }
         });
     }

@@ -7,10 +7,13 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -29,6 +32,7 @@ public class ReceptActivity extends AppCompatActivity {
 
     private ProgressBar progressBar;
     public String wish;
+    String searchString;
 
     public void setWish(String wish) {
         this.wish = wish;
@@ -45,7 +49,10 @@ public class ReceptActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recept);
         progressBar = findViewById(R.id.loading_recept_progress);
-        getMenues(URL + wish);
+        searchString = getIntent().getStringExtra("searchString");
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getMenues(URL + searchString);
+
     }
 
 
@@ -88,10 +95,18 @@ public class ReceptActivity extends AppCompatActivity {
                 finish();
             }
         });
-        dialogBuilder.setMessage("Leider ist funktioniert diese App nur auf Android Developer.").setTitle("Fehler");
+        dialogBuilder.setMessage("Fatal Error!! kaufen sie ein neues Handy.").setTitle("Fehler");
         AlertDialog dialog = dialogBuilder.create();
         dialog.show();
     }
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivityForResult(myIntent, 0);
+        return true;
+
+    }
+
+
 
 
 }
