@@ -28,6 +28,13 @@ import static ch.bbcag.foodwizard.Helper.JsonParser.createMealFromJson;
 public class ReceptActivity extends AppCompatActivity {
 
     private ProgressBar progressBar;
+    public String wish;
+
+    public void setWish(String wish) {
+        this.wish = wish;
+    }
+
+   
 
 
 
@@ -38,7 +45,7 @@ public class ReceptActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recept);
         progressBar = findViewById(R.id.loading_recept_progress);
-        getMenues(URL + "Garlic");
+        getMenues(URL + wish);
     }
 
 

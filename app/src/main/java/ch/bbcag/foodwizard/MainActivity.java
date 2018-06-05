@@ -10,11 +10,10 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 
-import ch.bbcag.foodwizard.Model.Meal;
+
 
 
 public class MainActivity extends AppCompatActivity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void addToList() {
+
         final EditText searchInput = findViewById(R.id.input_search);
         final Button button = findViewById(R.id.button_send);
         final Button findRecipe = findViewById(R.id.find_recipe);
@@ -37,7 +37,9 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String searchString = searchInput.getText().toString();
+
                 searchAdapter.add(searchString);
 
             }
@@ -52,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void redirectToRecept() {
+    /*public void redirectToRecept() {
         ListView items = findViewById(R.id.test_list);
         ArrayAdapter<Meal> mealAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1);
         mealAdapter.add(new Meal());
@@ -71,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
+*/
 
 
 }
