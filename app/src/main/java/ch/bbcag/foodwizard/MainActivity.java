@@ -22,9 +22,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         addToList();
+<<<<<<< HEAD
 
         }
 
+=======
+    }
+>>>>>>> justin-dev
 
     public void addToList() {
 
@@ -57,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+<<<<<<< HEAD
     /*public void redirectToRecept() {
         ListView items = findViewById(R.id.test_list);
         ArrayAdapter<Meal> mealAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1);
@@ -77,6 +82,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 */
+=======
+
+
+>>>>>>> justin-dev
 
 
 }

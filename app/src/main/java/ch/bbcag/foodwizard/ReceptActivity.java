@@ -7,15 +7,21 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> justin-dev
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+<<<<<<< HEAD
 import android.view.MenuItem;
+=======
+>>>>>>> justin-dev
 import android.view.View;
-import android.widget.ArrayAdapter;
+
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
@@ -27,6 +33,7 @@ import java.util.List;
 import ch.bbcag.foodwizard.Model.Meal;
 
 import static ch.bbcag.foodwizard.Helper.JsonParser.createMealFromJson;
+import static ch.bbcag.foodwizard.Helper.RVAdapter.*;
 
 public class ReceptActivity extends AppCompatActivity {
 
@@ -55,25 +62,12 @@ public class ReceptActivity extends AppCompatActivity {
 
     }
 
+//        final ArrayAdapter<Meal> mealAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1);
 
-    private void getMenues(String url){
-        final ArrayAdapter<Meal> mealAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1);
         final RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-               try {
-                   List<Meal> happymeals =  createMealFromJson(response);
-                   mealAdapter.addAll(happymeals);
-                   ListView iItems = findViewById(R.id.test_list);
-                   iItems.setAdapter(mealAdapter);
-                   progressBar.setVisibility(View.GONE);
-
-
-               }catch(JSONException e){
-                   generateAlertDialog();
-                   e.printStackTrace();
-               }
             }
         }, new Response.ErrorListener() {
             @Override
@@ -106,8 +100,16 @@ public class ReceptActivity extends AppCompatActivity {
 
     }
 
+<<<<<<< HEAD
 
 
 
+=======
+    private void displayData(ArrayList<Meal> meals) {
+        TextView rezept = new TextView(getApplicationContext());
+
+
+    }
+>>>>>>> justin-dev
 }
 
