@@ -21,7 +21,9 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".ReceptActivity"></activity>
+        <activity
+            android:name=".ReceptActivity"
+            android:parentActivityName=".MainActivity"></activity>
 
     </application>
 

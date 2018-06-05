@@ -44,19 +44,16 @@ public class ReceptActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recept);
         progressBar = findViewById(R.id.loading_recept_progress);
-<<<<<<< HEAD
+
         searchString = getIntent().getStringExtra("searchString");
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getMenues(URL + searchString);
 
-=======
-        getMenues(URL + "Tomato");
->>>>>>> justin-dev
+
+
     }
 
     private void getMenues(String url) {
-//        final ArrayAdapter<Meal> mealAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1);
-
         final RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
