@@ -42,6 +42,7 @@ public class ReceptActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recept);
         progressBar = findViewById(R.id.loading_recept_progress);
+<<<<<<< HEAD
 
 
         searchString = getIntent().getStringExtra("searchString");
@@ -51,6 +52,9 @@ public class ReceptActivity extends AppCompatActivity {
 
 
 
+=======
+        getMenues(URL + "pie");
+>>>>>>> justin-dev
     }
 
     private void getMenues(String url) {

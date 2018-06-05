@@ -31,6 +31,7 @@ public class JsonParser {
 
             meal.setmId(jsonMeal.getString("idMeal"));
             meal.setName(jsonMeal.getString("strMeal"));
+            meal.setCategory(jsonMeal.getString("strCategory"));
             meal.setCountry(jsonMeal.getString("strArea"));
             meal.setImage(jsonMeal.getString("strMealThumb"));
             meal.setInstructions(jsonMeal.getString("strInstructions"));
