@@ -2,6 +2,7 @@ package ch.bbcag.foodwizard.Helper;
 
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,6 +57,9 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.HappyMealHolder>{
 
     @Override
     public void onBindViewHolder(HappyMealHolder happyMealHolder, int i) {
+        Log.v("asd", happyMeals.get(i).getCategory());
+        Log.v("asdf", happyMeals.get(i).getName());
+
         happyMealHolder.mealName.setText(happyMeals.get(i).getName());
         happyMealHolder.mealCategory.setText(happyMeals.get(i).getCategory());
         Picasso.get().load(happyMeals.get(i).getImage()).into(happyMealHolder.happyMealPhoto);
