@@ -8,67 +8,55 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 
 import org.json.JSONException;
 
-import ch.bbcag.foodwizard.Helper.JsonParser;
-import ch.bbcag.foodwizard.Model.Ingredient;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
 import ch.bbcag.foodwizard.Model.Meal;
 
 import static ch.bbcag.foodwizard.Helper.JsonParser.createMealFromJson;
 
-public class ReceptDetailsActivity extends AppCompatActivity {
+public class ReceptActivity extends AppCompatActivity {
 
     private ProgressBar progressBar;
-    private int mId;
+
+    private static final ArrayList<Meal> meals = new ArrayList<>();
 
     private static final String URL = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recept_details);
-        progressBar = findViewById(R.id.loading_recept_details_progress);
-        getMenu(URL + "Garlic");
+        setContentView(R.layout.activity_recept);
+        progressBar = findViewById(R.id.loading_recept_progress);
+        getMenues(URL + "Garlic");
     }
 
-//    public void test() {
-//        ArrayAdapter<Meal> mealAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1);
-//        mealAdapter.add(new Meal());
-//        Button bt = findViewById(R.id.test_button);
-//        ListView items = findViewById(R.id.test_list);
-//        items.setAdapter(mealAdapter);
-//
-//        bt.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(), ReceptDetailsActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-//    }
 
-    private void getMenu(String url){
-        final ArrayAdapter<Ingredient> ingredientAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1);
+    private void getMenues(String url){
+        final ArrayAdapter<Meal> mealAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1);
         final RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                try {
-                   Meal happymeal = (Meal) createMealFromJson(response);
-                   ingredientAdapter.addAll(happymeal.getIngredientsList());
+                   List<Meal> happymeals =  createMealFromJson(response);
+                   mealAdapter.addAll(happymeals);
                    ListView iItems = findViewById(R.id.test_list);
-                   iItems.setAdapter(ingredientAdapter);
+                   iItems.setAdapter(mealAdapter);
                    progressBar.setVisibility(View.GONE);
 
 
@@ -100,6 +88,13 @@ public class ReceptDetailsActivity extends AppCompatActivity {
         dialogBuilder.setMessage("Leider ist ein Fehler aufgetretten bitte löschen Sie unser App LG Developer.").setTitle("Fehler");
         AlertDialog dialog = dialogBuilder.create();
         dialog.show();
+    }
+
+    private void displayData(ArrayList<Meal> meals){
+        TextView rezept = new TextView(getApplicationContext());
+
+
+
     }
 }
 

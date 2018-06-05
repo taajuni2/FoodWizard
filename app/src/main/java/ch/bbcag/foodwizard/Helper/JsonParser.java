@@ -15,6 +15,7 @@ import ch.bbcag.foodwizard.Model.Meal;
 
 public class JsonParser {
 
+public static String TAG = "JsonParser";
 
     public static List<Meal> createMealFromJson(String mealJsonString) throws JSONException {
         JSONObject jsonObj = new JSONObject(mealJsonString);
@@ -51,10 +52,13 @@ public class JsonParser {
             try {
 
                     ingredient = new Ingredient(jsonMeal.getString("strIngredient" + k));
-                    if(ingredient.getName() == ""){
+                    ingredient.setMeasure(jsonMeal.getString("strMeasure" + k));
+                    if(ingredient.getName().isEmpty()){
+                      Log.i(TAG, "Empty Ingredient");
 
                     }else {
                         meal.addIngredient(ingredient);
+
                     }
 
 
