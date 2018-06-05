@@ -7,12 +7,15 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import android.content.ClipData;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ArrayAdapter;
+
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -25,14 +28,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+import ch.bbcag.foodwizard.Helper.RVAdapter;
 import ch.bbcag.foodwizard.Model.Meal;
 
 import static ch.bbcag.foodwizard.Helper.JsonParser.createMealFromJson;
+import static ch.bbcag.foodwizard.Helper.RVAdapter.*;
 
 public class ReceptActivity extends AppCompatActivity {
 
     private ProgressBar progressBar;
-
 
 
     private static final String URL = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
@@ -45,26 +49,29 @@ public class ReceptActivity extends AppCompatActivity {
         getMenues(URL + "Garlic");
     }
 
+    private void getMenues(String url) {
+//        final ArrayAdapter<Meal> mealAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1);
 
-    private void getMenues(String url){
-        final ArrayAdapter<Meal> mealAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1);
-        ListView iItems = findViewById(R.id.test_list);
-        iItems.setAdapter(mealAdapter);
         final RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-               try {
+                try {
 
-                   List<Meal> happymeals =  createMealFromJson(response);
-                   mealAdapter.addAll(happymeals);
-                   progressBar.setVisibility(View.GONE);
+                    List<Meal> happymeals = createMealFromJson(response);
+                    RecyclerView recipeRecyclerView = findViewById(R.id.recipe_recycler_view);
+                    LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+                    RVAdapter adapter = new RVAdapter(happymeals);
+
+                    recipeRecyclerView.setLayoutManager(layoutManager);
+                    recipeRecyclerView.setAdapter(adapter);
+                    progressBar.setVisibility(View.GONE);
 
 
-               }catch(JSONException e){
-                   generateAlertDialog();
-                   e.printStackTrace();
-               }
+                } catch (JSONException e) {
+                    generateAlertDialog();
+                    e.printStackTrace();
+                }
             }
         }, new Response.ErrorListener() {
             @Override
@@ -91,9 +98,8 @@ public class ReceptActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    private void displayData(ArrayList<Meal> meals){
+    private void displayData(ArrayList<Meal> meals) {
         TextView rezept = new TextView(getApplicationContext());
-
 
 
     }

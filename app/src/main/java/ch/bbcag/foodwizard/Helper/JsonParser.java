@@ -30,7 +30,7 @@ public static String TAG = "JsonParser";
             //  Ingredient test = new Ingredient(jsonMeal.getString("strIngredient"));
 
             meal.setmId(jsonMeal.getString("idMeal"));
-            meal.setmName(jsonMeal.getString("strMeal"));
+            meal.setName(jsonMeal.getString("strMeal"));
             meal.setCountry(jsonMeal.getString("strArea"));
             meal.setImage(jsonMeal.getString("strMealThumb"));
             meal.setInstructions(jsonMeal.getString("strInstructions"));

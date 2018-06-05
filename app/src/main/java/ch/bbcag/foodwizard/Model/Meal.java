@@ -1,7 +1,5 @@
 package ch.bbcag.foodwizard.Model;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 
 public class Meal {
@@ -10,18 +8,18 @@ public class Meal {
     private String mId;
     private String category;
     private String instructions;
-    private String mName;
+    private String name;
 
 
     public Meal() {
 
     }
 
-    public Meal(String mId, String category, String instructions, String mName, String country, String image) {
+    public Meal(String mId, String category, String instructions, String name, String country, String image) {
         this.mId = mId;
         this.category = category;
         this.instructions = instructions;
-        this.mName = mName;
+        this.name = name;
         this.country = country;
         this.image = image;
     }
@@ -59,12 +57,12 @@ public class Meal {
         this.instructions = instructions;
     }
 
-    public String getmName() {
-        return mName;
+    public String getName() {
+        return name;
     }
 
-    public void setmName(String mName) {
-        this.mName = mName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getCountry() {

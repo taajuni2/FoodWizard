@@ -25,11 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         addToList();
-
-
     }
-
-
 
     public void addToList() {
         final EditText searchInput = findViewById(R.id.input_search);
@@ -56,25 +52,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void redirectToRecept() {
-        ListView items = findViewById(R.id.test_list);
-        ArrayAdapter<Meal> mealAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1);
-        mealAdapter.add(new Meal());
-        Button bt = findViewById(R.id.find_recipe);
-        items.setAdapter(mealAdapter);
 
-
-        bt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ReceptActivity.class);
-                startActivity(intent);
-
-            }
-        });
-
-
-    }
 
 
 
