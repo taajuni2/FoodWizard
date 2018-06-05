@@ -6,9 +6,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
-import android.content.ClipData;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
@@ -18,14 +15,13 @@ import android.view.MenuItem;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import org.json.JSONException;
 import java.util.List;
 import ch.bbcag.foodwizard.Helper.RVAdapter;
 import ch.bbcag.foodwizard.Model.Meal;
 import static ch.bbcag.foodwizard.Helper.JsonParser.createMealFromJson;
-import static ch.bbcag.foodwizard.Helper.RVAdapter.*;
+
 
 public class ReceptActivity extends AppCompatActivity {
 
@@ -108,6 +104,6 @@ public class ReceptActivity extends AppCompatActivity {
         return true;
 
     }
-    
+
 }
 
