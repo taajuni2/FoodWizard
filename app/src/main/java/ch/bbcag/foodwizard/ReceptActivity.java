@@ -33,7 +33,7 @@ public class ReceptActivity extends AppCompatActivity {
 
     private ProgressBar progressBar;
 
-    private static final ArrayList<Meal> meals = new ArrayList<>();
+
 
     private static final String URL = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
 
@@ -48,15 +48,16 @@ public class ReceptActivity extends AppCompatActivity {
 
     private void getMenues(String url){
         final ArrayAdapter<Meal> mealAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1);
+        ListView iItems = findViewById(R.id.test_list);
+        iItems.setAdapter(mealAdapter);
         final RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                try {
+
                    List<Meal> happymeals =  createMealFromJson(response);
                    mealAdapter.addAll(happymeals);
-                   ListView iItems = findViewById(R.id.test_list);
-                   iItems.setAdapter(mealAdapter);
                    progressBar.setVisibility(View.GONE);
 
 
