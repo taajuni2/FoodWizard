@@ -44,10 +44,14 @@ public class ReceptActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recept);
         progressBar = findViewById(R.id.loading_recept_progress);
+<<<<<<< HEAD
         searchString = getIntent().getStringExtra("searchString");
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getMenues(URL + searchString);
 
+=======
+        getMenues(URL + "Tomato");
+>>>>>>> justin-dev
     }
 
     private void getMenues(String url) {
