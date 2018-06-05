@@ -15,13 +15,9 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
-
 
 import org.json.JSONException;
 
-
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -33,7 +29,7 @@ public class ReceptActivity extends AppCompatActivity {
 
     private ProgressBar progressBar;
 
-    private static final ArrayList<Meal> meals = new ArrayList<>();
+
 
     private static final String URL = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
 
@@ -85,16 +81,11 @@ public class ReceptActivity extends AppCompatActivity {
                 finish();
             }
         });
-        dialogBuilder.setMessage("Leider ist ein Fehler aufgetretten bitte löschen Sie unser App LG Developer.").setTitle("Fehler");
+        dialogBuilder.setMessage("Leider ist funktioniert diese App nur auf Android Developer.").setTitle("Fehler");
         AlertDialog dialog = dialogBuilder.create();
         dialog.show();
     }
 
-    private void displayData(ArrayList<Meal> meals){
-        TextView rezept = new TextView(getApplicationContext());
 
-
-
-    }
 }
 

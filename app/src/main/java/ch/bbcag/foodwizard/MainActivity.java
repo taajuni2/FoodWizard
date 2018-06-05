@@ -8,10 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 import ch.bbcag.foodwizard.Model.Meal;
@@ -30,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     public void addToList() {
         final EditText searchInput = findViewById(R.id.input_search);
         final Button button = findViewById(R.id.button_send);
@@ -44,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String searchString = searchInput.getText().toString();
                 searchAdapter.add(searchString);
+
             }
         });
 
