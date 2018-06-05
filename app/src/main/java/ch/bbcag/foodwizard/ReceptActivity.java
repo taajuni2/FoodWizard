@@ -6,6 +6,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
@@ -16,25 +17,22 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
+
 import org.json.JSONException;
+
 import java.util.List;
+
 import ch.bbcag.foodwizard.Helper.RVAdapter;
 import ch.bbcag.foodwizard.Model.Meal;
+
 import static ch.bbcag.foodwizard.Helper.JsonParser.createMealFromJson;
 
 
 public class ReceptActivity extends AppCompatActivity {
 
     private ProgressBar progressBar;
-    public String wish;
+
     String searchString;
-
-    public void setWish(String wish) {
-        this.wish = wish;
-    }
-
-   
-
 
 
     private static final String URL = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
@@ -45,15 +43,14 @@ public class ReceptActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recept);
         progressBar = findViewById(R.id.loading_recept_progress);
 
+
         searchString = getIntent().getStringExtra("searchString");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getMenues(URL + searchString);
 
 
 
-=======
-        getMenues(URL + "Beef");
->>>>>>> justin-dev
+
     }
 
     private void getMenues(String url) {
@@ -98,16 +95,19 @@ public class ReceptActivity extends AppCompatActivity {
                 finish();
             }
         });
-        dialogBuilder.setMessage("Fatal Error!! kaufen sie ein neues Handy.").setTitle("Fehler");
+        dialogBuilder.setMessage("Fatal Error!! Leider ist momentan im Back-end ein Fehler aufgetreten.").setTitle("Fehler");
         AlertDialog dialog = dialogBuilder.create();
         dialog.show();
     }
-    public boolean onOptionsItemSelected(MenuItem item){
+
+    public boolean onOptionsItemSelected(MenuItem item) {
         Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
         startActivityForResult(myIntent, 0);
         return true;
 
     }
+
+  
 
 }
 

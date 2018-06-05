@@ -11,9 +11,6 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 
-
-
-
 public class MainActivity extends AppCompatActivity {
 
     String searchString;
@@ -26,10 +23,7 @@ public class MainActivity extends AppCompatActivity {
         addToList();
 
 
-        }
-
-
-
+    }
 
 
     public void addToList() {
