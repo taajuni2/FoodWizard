@@ -46,7 +46,7 @@ public class ReceptActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recept);
         progressBar = findViewById(R.id.loading_recept_progress);
-        getMenues(URL + "Tomato");
+        getMenues(URL + "Beef");
     }
 
     private void getMenues(String url) {
