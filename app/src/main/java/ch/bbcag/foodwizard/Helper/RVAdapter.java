@@ -21,15 +21,15 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.HappyMealHolder>{
     public static class HappyMealHolder extends RecyclerView.ViewHolder {
         CardView cv;
         TextView mealName;
-        TextView category;
+        TextView mealCategory;
         ImageView happyMealPhoto;
 
 
         public HappyMealHolder(View itemView) {
             super(itemView);
-            cv = (CardView) itemView.findViewById(R.id.cv);
+            cv = (CardView) itemView.findViewById(R.id.recipe_recycler_view);
             mealName = (TextView) itemView.findViewById(R.id.meal_name);
-            category = (TextView) itemView.findViewById(R.id.meal_category);
+            mealCategory = (TextView) itemView.findViewById(R.id.meal_category);
             happyMealPhoto = (ImageView) itemView.findViewById(R.id.meal_picture);
         }
     }
@@ -57,7 +57,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.HappyMealHolder>{
     @Override
     public void onBindViewHolder(HappyMealHolder happyMealHolder, int i) {
         happyMealHolder.mealName.setText(happyMeals.get(i).getName());
-        happyMealHolder.category.setText(happyMeals.get(i).getCategory());
+        happyMealHolder.mealCategory.setText(happyMeals.get(i).getCategory());
         Picasso.get().load(happyMeals.get(i).getImage()).into(happyMealHolder.happyMealPhoto);
     }
 

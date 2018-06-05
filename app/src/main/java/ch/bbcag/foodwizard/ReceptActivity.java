@@ -51,6 +51,9 @@ public class ReceptActivity extends AppCompatActivity {
 
 
 
+=======
+        getMenues(URL + "Beef");
+>>>>>>> justin-dev
     }
 
     private void getMenues(String url) {
