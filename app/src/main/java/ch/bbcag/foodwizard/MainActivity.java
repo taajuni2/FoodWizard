@@ -1,6 +1,8 @@
 package ch.bbcag.foodwizard;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +16,7 @@ import android.widget.ListView;
 public class MainActivity extends AppCompatActivity {
 
     String searchString;
+    public boolean check = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +43,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 searchString = searchInput.getText().toString();
-                searchAdapter.add(searchString);
+                if (searchString.isEmpty() == true) {
+                    generateAlert();
+                } else {
+                    searchAdapter.add(searchString);
+                    check = true;
+                }
 
 
             }
@@ -49,12 +57,30 @@ public class MainActivity extends AppCompatActivity {
         findRecipe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ReceptActivity.class);
-                intent.putExtra("searchString", searchString);
-                startActivity(intent);
+                if (check == false) {
+                    generateAlert();
+                } else {
+                    Intent intent = new Intent(getApplicationContext(), ReceptActivity.class);
+                    intent.putExtra("searchString", searchString);
+                    startActivity(intent);
+                }
+
 
             }
         });
+    }
+
+    private void generateAlert() {
+        AlertDialog.Builder dialogBuilder;
+        dialogBuilder = new AlertDialog.Builder(this);
+        dialogBuilder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                releaseInstance();
+            }
+        });
+        dialogBuilder.setMessage("No ingredient was entered! Please enter an ingredient!").setTitle("Error!!!");
+        AlertDialog dialog = dialogBuilder.create();
+        dialog.show();
     }
 
 

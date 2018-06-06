@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -42,18 +43,10 @@ public class ReceptActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recept);
         progressBar = findViewById(R.id.loading_recept_progress);
-
-
-
         searchString = getIntent().getStringExtra("searchString");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getMenues(URL + searchString);
 
-
-
-
-
-        getMenues(URL + "pie");
 
     }
 
@@ -99,7 +92,7 @@ public class ReceptActivity extends AppCompatActivity {
                 finish();
             }
         });
-        dialogBuilder.setMessage("Fatal Error!! Leider ist momentan im Back-end ein Fehler aufgetreten.").setTitle("Fehler");
+        dialogBuilder.setMessage(" An error has occurred in the backend at the moment.").setTitle("Error!!!");
         AlertDialog dialog = dialogBuilder.create();
         dialog.show();
     }
@@ -111,7 +104,11 @@ public class ReceptActivity extends AppCompatActivity {
 
     }
 
-  
 
+    public void switchToDetails(View view) {
+        Intent details = new Intent(getApplicationContext(), RecipeDetailsActivity.class);
+        Log.v("tag", ((Meal)view.getTag()).getName().toString());
+        startActivity(details);
+    }
 }
 
