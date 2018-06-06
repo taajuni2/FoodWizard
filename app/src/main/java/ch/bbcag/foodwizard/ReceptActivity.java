@@ -36,7 +36,8 @@ public class ReceptActivity extends AppCompatActivity {
     private ProgressBar progressBar;
 
     String searchString;
-    String savedSearchString;
+    String saveString;
+
 
 
     private static final String URL = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
@@ -47,22 +48,20 @@ public class ReceptActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recept);
         progressBar = findViewById(R.id.loading_recept_progress);
         searchString = getIntent().getStringExtra("searchString");
+     //   searchString = saveString;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        searchString = savedSearchString;
+
         getMenues(URL + searchString);
 
 
 
     }
-
+/*
     @Override
     protected void onRestart() {
         super.onRestart();
-
-        getMenues(URL + savedSearchString);
-
-
-    }
+        getMenues(URL + saveString);
+    }*/
 
     private void getMenues(String url) {
         final RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
@@ -103,7 +102,7 @@ public class ReceptActivity extends AppCompatActivity {
         dialogBuilder = new AlertDialog.Builder(this);
         dialogBuilder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                finish();
+                releaseInstance();
             }
         });
         dialogBuilder.setMessage(" An error has occurred in the backend at the moment.").setTitle("Error!!!");
