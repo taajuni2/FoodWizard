@@ -32,13 +32,12 @@ public class MainActivity extends AppCompatActivity {
     public void addToList() {
 
         final EditText searchInput = findViewById(R.id.input_search);
-        final Button button = findViewById(R.id.button_send);
         final Button findRecipe = findViewById(R.id.find_recipe);
         final ListView view = findViewById(R.id.zutatenView);
         final ArrayAdapter<String> searchAdapter = new ArrayAdapter<>(getApplicationContext(), R.layout.ingredient_list_item, R.id.ingredient_list_item);
         view.setAdapter(searchAdapter);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        findRecipe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -47,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
                     generateAlert();
                 } else {
                     searchAdapter.add(searchString);
+                    Intent intent = new Intent(getApplicationContext(), ReceptActivity.class);
+                    intent.putExtra("searchString", searchString);
+                    startActivity(intent);
                     check = true;
                 }
 
@@ -54,20 +56,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        findRecipe.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (check == false) {
-                    generateAlert();
-                } else {
-                    Intent intent = new Intent(getApplicationContext(), ReceptActivity.class);
-                    intent.putExtra("searchString", searchString);
-                    startActivity(intent);
-                }
 
-
-            }
-        });
     }
 
     private void generateAlert() {
