@@ -12,8 +12,6 @@ import android.widget.TextView;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
-import org.w3c.dom.Text;
-
 import java.io.IOException;
 
 import ch.bbcag.foodwizard.Helper.RVAdapterRecipeDetails;
@@ -34,16 +32,16 @@ public class RecipeDetailsActivity extends AppCompatActivity {
 
             meal = mapper.readValue(menuJson, Meal.class);
 
-        }catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         writeDetails();
     }
 
-    public void writeDetails(){
+    public void writeDetails() {
         RVAdapterRecipeDetails adapter = new RVAdapterRecipeDetails(meal);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-        RecyclerView detailsView =  findViewById(R.id.details_recycler_view);
+        RecyclerView detailsView = findViewById(R.id.details_recycler_view);
         TextView recipename = findViewById(R.id.recipe_name);
 
         TextView instructions = findViewById(R.id.recipe_instruction);
@@ -55,7 +53,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent myIntent = new Intent(getApplicationContext(), ReceptActivity.class);
+        Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
         startActivityForResult(myIntent, 0);
         return true;
 
