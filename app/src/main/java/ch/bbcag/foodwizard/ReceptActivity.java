@@ -49,12 +49,6 @@ public class ReceptActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getMenues(URL + searchString);
 
-
-
-
-
-        getMenues(URL + "pie");
-
     }
 
     private void getMenues(String url) {
