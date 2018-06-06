@@ -51,8 +51,7 @@ public class JsonParser {
 
             try {
 
-                ingredient = new Ingredient(jsonMeal.getString("strIngredient" + k));
-                ingredient.setMeasure(jsonMeal.getString("strMeasure" + k));
+                ingredient = new Ingredient(jsonMeal.getString("strIngredient" + k), jsonMeal.getString("strMeasure" + k));
                 if (ingredient.getName().isEmpty()) {
                     Log.i(TAG, "Empty Ingredient");
 

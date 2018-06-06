@@ -6,6 +6,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -107,7 +109,17 @@ public class ReceptActivity extends AppCompatActivity {
 
     public void switchToDetails(View view) {
         Intent details = new Intent(getApplicationContext(), RecipeDetailsActivity.class);
-        Log.v("tag", ((Meal)view.getTag()).getName().toString());
+        Meal meal = ((Meal)view.getTag());
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            Log.v("mealJson", mapper.writeValueAsString(meal));
+            details.putExtra("mealJson" , mapper.writeValueAsString(meal));
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+
+
+//        details.putStringExtra("mealJson",view.getTag().);
         startActivity(details);
     }
 }

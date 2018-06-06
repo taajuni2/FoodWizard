@@ -1,5 +1,8 @@
 package ch.bbcag.foodwizard.Model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 
 public class Meal {
@@ -94,8 +97,5 @@ public class Meal {
     public void addIngredient(Ingredient ingredient ){
         ingredientsList.add(ingredient);
     }
-
-
-
 
 }
