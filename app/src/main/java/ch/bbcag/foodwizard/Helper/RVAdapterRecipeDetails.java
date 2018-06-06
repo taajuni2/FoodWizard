@@ -11,11 +11,6 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-<<<<<<< HEAD:app/src/main/java/ch/bbcag/foodwizard/Helper/RVAdapterRecipeDetails.java
-
-=======
-
->>>>>>> justin-dev:app/src/main/java/ch/bbcag/foodwizard/Helper/RVAdaterRecipeDetails.java
 import java.util.List;
 
 import ch.bbcag.foodwizard.Model.Ingredient;
@@ -24,11 +19,10 @@ import ch.bbcag.foodwizard.R;
 
 public  class RVAdapterRecipeDetails extends RecyclerView.Adapter<RVAdapterRecipeDetails.DetailsHolder> {
 
-
     public static class DetailsHolder extends RecyclerView.ViewHolder {
 
-        public static  String Url = "https://www.themealdb.com/images/ingredients/";
-        public static   String imgType = ".png";
+        public static final String URL = "https://www.themealdb.com/images/ingredients/";
+        public static final String IMG_TYPE = ".png";
         CardView cv;
         TextView ingredient;
         TextView measure;
@@ -46,12 +40,11 @@ public  class RVAdapterRecipeDetails extends RecyclerView.Adapter<RVAdapterRecip
 
     public List<Ingredient> ingredients;
 
-<<<<<<< HEAD:app/src/main/java/ch/bbcag/foodwizard/Helper/RVAdapterRecipeDetails.java
-    public RVAdapterRecipeDetails(Meal meal) {
-=======
-    public RVAdaterRecipeDetails( Meal meal) {
 
->>>>>>> justin-dev:app/src/main/java/ch/bbcag/foodwizard/Helper/RVAdaterRecipeDetails.java
+
+    public RVAdapterRecipeDetails(Meal meal) {
+
+
             ingredients = meal.getIngredientsList();
     }
 
@@ -69,12 +62,9 @@ public  class RVAdapterRecipeDetails extends RecyclerView.Adapter<RVAdapterRecip
 
     @Override
     public void onBindViewHolder(DetailsHolder detailsHolder, int i) {
-
-        final String Url = "https://www.themealdb.com/images/ingredients/";
-        final String imgType = ".png";
         detailsHolder.measure.setText(ingredients.get(i).getMeasure());
         detailsHolder.ingredient.setText(ingredients.get(i).getName());
-        Picasso.get().load(Url + ingredients.get(i).getName().toString() + imgType).into(detailsHolder.ingredientPicture);
+        Picasso.get().load(DetailsHolder.URL + ingredients.get(i).getName().toString() + DetailsHolder.IMG_TYPE).into(detailsHolder.ingredientPicture);
     }
 
     @Override
