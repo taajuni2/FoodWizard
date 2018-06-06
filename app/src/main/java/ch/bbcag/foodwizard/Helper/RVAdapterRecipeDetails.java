@@ -11,7 +11,11 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+<<<<<<< HEAD:app/src/main/java/ch/bbcag/foodwizard/Helper/RVAdapterRecipeDetails.java
 
+=======
+
+>>>>>>> justin-dev:app/src/main/java/ch/bbcag/foodwizard/Helper/RVAdaterRecipeDetails.java
 import java.util.List;
 
 import ch.bbcag.foodwizard.Model.Ingredient;
@@ -42,7 +46,12 @@ public  class RVAdapterRecipeDetails extends RecyclerView.Adapter<RVAdapterRecip
 
     public List<Ingredient> ingredients;
 
+<<<<<<< HEAD:app/src/main/java/ch/bbcag/foodwizard/Helper/RVAdapterRecipeDetails.java
     public RVAdapterRecipeDetails(Meal meal) {
+=======
+    public RVAdaterRecipeDetails( Meal meal) {
+
+>>>>>>> justin-dev:app/src/main/java/ch/bbcag/foodwizard/Helper/RVAdaterRecipeDetails.java
             ingredients = meal.getIngredientsList();
     }
 
