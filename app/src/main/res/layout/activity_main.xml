@@ -6,19 +6,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-
-
     tools:context=".MainActivity">
 
 
     <EditText
-
+        android:textCursorDrawable="@drawable/cursor_style"
         android:id="@+id/input_search"
         android:layout_width="246dp"
         android:layout_height="55dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="44dp"
+        android:alpha="1"
         android:background="@drawable/border_style"
+        android:cursorVisible="false"
         android:ems="10"
         android:fontFamily="@font/bowlby_one"
         android:hint="Zutaten"
@@ -31,14 +31,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button_send"
+        android:id="@+id/find_recipe"
         android:layout_width="0dp"
         android:layout_height="55dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="44dp"
         android:textColor="#FFFF"
-        android:text="Add To List"
+        android:text="FIND RECIPE"
         android:background="@drawable/button_style"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/input_search"
@@ -59,18 +59,5 @@
         app:layout_constraintTop_toBottomOf="@+id/input_search"
         tools:context="abhiandroid.com.listexample.MainActivity" />
 
-    <Button
-        android:id="@+id/find_recipe"
-        android:layout_width="151dp"
-        android:layout_height="64dp"
-        android:layout_marginEnd="116dp"
-        android:layout_marginStart="117dp"
-        android:layout_marginTop="32dp"
-        android:text="Find recipe"
-        android:textColor="#FFFF"
-        android:background="@drawable/button_style"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/zutatenView" />
 
 </android.support.constraint.ConstraintLayout>
