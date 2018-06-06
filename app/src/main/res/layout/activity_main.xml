@@ -10,13 +10,15 @@
 
 
     <EditText
-        android:alpha="1"
+        android:textCursorDrawable="@drawable/cursor_style"
         android:id="@+id/input_search"
         android:layout_width="246dp"
         android:layout_height="55dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="44dp"
+        android:alpha="1"
         android:background="@drawable/border_style"
+        android:cursorVisible="false"
         android:ems="10"
         android:fontFamily="@font/bowlby_one"
         android:hint="Zutaten"
