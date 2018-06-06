@@ -3,7 +3,7 @@ package ch.bbcag.foodwizard;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class recipe_details extends AppCompatActivity {
+public class RecipeDetailsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

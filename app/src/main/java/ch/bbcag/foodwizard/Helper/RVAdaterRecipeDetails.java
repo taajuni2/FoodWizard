@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import org.w3c.dom.Text;
+
 import java.net.URL;
 import java.util.List;
 
@@ -29,6 +31,8 @@ public abstract class RVAdaterRecipeDetails extends RecyclerView.Adapter<RVAdate
         TextView ingredient;
         TextView mesuer;
         ImageView ingredientPicture;
+        TextView instructions;
+        TextView mealName;
 
 
         public DetailsHolder(View itemView) {
@@ -37,13 +41,17 @@ public abstract class RVAdaterRecipeDetails extends RecyclerView.Adapter<RVAdate
             ingredient = (TextView) itemView.findViewById(R.id.details_ingredient);
             mesuer = (TextView) itemView.findViewById(R.id.ingredient_mesuere);
             ingredientPicture = (ImageView) itemView.findViewById(R.id.ingredient_picture);
+            instructions = (TextView) itemView.findViewById(R.id.recipe_instruction);
+            mealName = (TextView) itemView.findViewById(R.id.recipe_name);
         }
     }
 
     public List<Ingredient> ingredients;
+    public Meal meal;
 
     public RVAdaterRecipeDetails( Meal meal) {
 
+            this.meal = meal;
             ingredients = meal.getIngredientsList();
 
 

@@ -4,13 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".recipe_details">
+    tools:context=".RecipeDetailsActivity">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="5dp"
         android:background="@color/colorPrimary"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+
 
         app:layout_constraintTop_toTopOf="parent">
 
@@ -22,15 +25,16 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/ingredient_mesuere"
+            android:layout_width="127dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
-            android:id="@+id/ingredient_mesuere"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="3dp"
             android:layout_marginTop="8dp"
-            android:text="SUM CONTENT"
+            android:text="Olive Oil"
             android:textColor="@android:color/background_light"
+            android:textSize="25dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.356"
@@ -41,13 +45,14 @@
 
         <TextView
             android:id="@+id/details_ingredient"
-            android:layout_width="wrap_content"
+            android:layout_width="162dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:layout_marginEnd="44dp"
+            android:layout_marginEnd="5dp"
             android:layout_marginTop="8dp"
-            android:text="SUM CONTENT"
+            android:text="2 small cut into chunks"
             android:textColor="@android:color/background_light"
+            android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"

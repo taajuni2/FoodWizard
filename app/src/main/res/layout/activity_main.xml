@@ -38,6 +38,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="44dp"
         android:text="Add To List"
+        android:background="@drawable/button_style"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/input_search"
         app:layout_constraintTop_toTopOf="parent" />
@@ -65,6 +66,7 @@
         android:layout_marginStart="117dp"
         android:layout_marginTop="32dp"
         android:text="Find recipe"
+        android:background="@drawable/button_style"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/zutatenView" />
