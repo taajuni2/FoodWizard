@@ -36,6 +36,7 @@ public class ReceptActivity extends AppCompatActivity {
     private ProgressBar progressBar;
 
     String searchString;
+    String savedSearchString;
 
 
     private static final String URL = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
@@ -47,7 +48,18 @@ public class ReceptActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.loading_recept_progress);
         searchString = getIntent().getStringExtra("searchString");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        searchString = savedSearchString;
         getMenues(URL + searchString);
+
+
+
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
+        getMenues(URL + savedSearchString);
 
 
     }

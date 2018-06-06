@@ -1,10 +1,12 @@
 package ch.bbcag.foodwizard;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.method.ScrollingMovementMethod;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -25,6 +27,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe_details);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         ObjectMapper mapper = new ObjectMapper();
         String menuJson = getIntent().getStringExtra("mealJson");
         try {
@@ -49,5 +52,12 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         recipename.setText(meal.getName());
         detailsView.setLayoutManager(layoutManager);
         detailsView.setAdapter(adapter);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent myIntent = new Intent(getApplicationContext(), ReceptActivity.class);
+        startActivityForResult(myIntent, 0);
+        return true;
+
     }
 }
