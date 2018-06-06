@@ -47,7 +47,10 @@ public class ReceptActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getMenues(URL + searchString);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> justin-dev
     }
 
     private void getMenues(String url) {
