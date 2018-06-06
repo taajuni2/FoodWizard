@@ -4,10 +4,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.method.ScrollingMovementMethod;
+import android.widget.TextView;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 
@@ -38,6 +41,12 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         RVAdapterRecipeDetails adapter = new RVAdapterRecipeDetails(meal);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         RecyclerView detailsView =  findViewById(R.id.details_recycler_view);
+        TextView recipename = findViewById(R.id.recipe_name);
+
+        TextView instructions = findViewById(R.id.recipe_instruction);
+        instructions.setMovementMethod(new ScrollingMovementMethod());
+        instructions.setText(meal.getInstructions());
+        recipename.setText(meal.getName());
         detailsView.setLayoutManager(layoutManager);
         detailsView.setAdapter(adapter);
     }
